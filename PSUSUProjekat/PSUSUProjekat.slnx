@@ -1,1 +1,5 @@
-<Solution />
+<Solution>
+  <Project Path="DataConcentrator/DataConcentrator.csproj" Id="5e252e3a-870f-45bb-8bca-65d1dfdce6e4" />
+  <Project Path="PLCSimulator/PLCSimulator.csproj" Id="83149342-01f2-4073-a389-324614c77fa3" />
+  <Project Path="ScadaGUI/ScadaGUI.csproj" Id="fa7c94dc-4943-496a-9e21-b66c1e10e761" />
+</Solution>
