@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScadaGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="SCADA Application" Height="450" Width="800" 
+        Closing="Window_Closing">
     <Grid>
-        
+
+
+        <Button Content="Add tag" Grid.Row="1" HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" Height="30" Width="150" Margin="15"/>
+
     </Grid>
+
 </Window>

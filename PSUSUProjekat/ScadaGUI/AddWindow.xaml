@@ -1,0 +1,98 @@
+<Window x:Class="ScadaGUI.Views.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dodaj Tag / Alarm" Height="600" Width="440"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Border Margin="16" Padding="16" Background="White" CornerRadius="6"
+                BorderBrush="#E0E0E0" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Tip" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                <ComboBox x:Name="TypeBox" Height="34" FontSize="13" Margin="0,0,0,14"
+                          SelectionChanged="TypeBox_SelectionChanged">
+                    <ComboBoxItem Content="AI" IsSelected="True"/>
+                    <ComboBoxItem Content="AO"/>
+                    <ComboBoxItem Content="DI"/>
+                    <ComboBoxItem Content="DO"/>
+                    <ComboBoxItem Content="Alarm"/>
+                </ComboBox>
+
+                <StackPanel x:Name="CommonPanel">
+                    <TextBlock Text="Ime taga (ID)" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="TagNameBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"
+                             ToolTip="Jedinstveni identifikator taga"/>
+                    <TextBlock Text="Opis" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="DescBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                    <TextBlock Text="I/O Adresa" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="IOAddrBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"
+                             ToolTip="Npr. ADDR001, ADDR005"/>
+                </StackPanel>
+
+                <StackPanel x:Name="InputPanel">
+                    <TextBlock Text="Vreme skeniranja (s)" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="ScanTimeBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                    <CheckBox x:Name="ScanOnBox" Content="Skeniranje uključeno"
+                              Margin="0,0,0,10" IsChecked="True"/>
+                </StackPanel>
+
+                <StackPanel x:Name="AnalogPanel">
+                    <TextBlock Text="Donja granica" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="LowLimitBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                    <TextBlock Text="Gornja granica" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="HighLimitBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                    <TextBlock Text="Jedinice" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="UnitsBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                </StackPanel>
+
+                <StackPanel x:Name="AIPanel">
+                    <TextBlock Text="Deadband" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="DeadbandBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                    <TextBlock Text="Histerezis" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="HysteresisBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                </StackPanel>
+
+                <StackPanel x:Name="OutputPanel">
+                    <TextBlock Text="Početna vrednost" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="InitValBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                </StackPanel>
+
+                <StackPanel x:Name="AlarmPanel" Visibility="Collapsed">
+                    <TextBlock Text="AI Tag" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="AlarmTagBox" Height="34" FontSize="13" Margin="0,0,0,10"/>
+                    <TextBlock Text="Vrednost granice" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="AlarmLimitBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                    <TextBlock Text="Smer" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="AlarmDirBox" Height="34" FontSize="13" Margin="0,0,0,10">
+                        <ComboBoxItem Content="Iznad granice" IsSelected="True"/>
+                        <ComboBoxItem Content="Ispod granice"/>
+                    </ComboBox>
+                    <TextBlock Text="Poruka" FontSize="12" Foreground="#424242" Margin="0,0,0,4"/>
+                    <TextBox x:Name="AlarmMsgBox" Height="34" FontSize="13" Margin="0,0,0,10"
+                             BorderBrush="#BDBDBD" BorderThickness="1" Padding="8,6"/>
+                </StackPanel>
+
+                <TextBlock x:Name="ErrorText" Foreground="Red" FontSize="12"
+                           Margin="0,4,0,8" Visibility="Collapsed" TextWrapping="Wrap"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Otkaži" Click="Cancel_Click" Width="80" Height="36"
+                            Margin="0,0,8,0" Background="#9E9E9E" Foreground="White"
+                            BorderThickness="0" Cursor="Hand"/>
+                    <Button Content="Dodaj" Click="Add_Click" Width="80" Height="36"
+                            Background="#1976D2" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </ScrollViewer>
+</Window>
