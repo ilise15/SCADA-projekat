@@ -67,6 +67,7 @@
     <Compile Include="AddWindow.xaml.cs" />
     <Compile Include="TagDetailsWindow.xaml.cs" />
     <Compile Include="TagViewModel.cs" />
+    <Compile Include="WriteValueWindow.xaml.cs" />
     <Page Include="AddWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="TagDetailsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WriteValueWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
