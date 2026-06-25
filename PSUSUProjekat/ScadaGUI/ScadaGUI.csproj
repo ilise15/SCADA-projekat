@@ -64,11 +64,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddWindow.xaml.cs" />
-    <Compile Include="TagDetailsWindow.xaml.cs" />
-    <Compile Include="TagViewModel.cs" />
-    <Compile Include="WriteValueWindow.xaml.cs" />
-    <Page Include="AddWindow.xaml">
+    <Compile Include="Views\AddWindow.xaml.cs" />
+    <Compile Include="Views\FilterWindow.xaml.cs">
+      <DependentUpon>FilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoryWindow.xaml.cs">
+      <DependentUpon>HistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TagDetailsWindow.xaml.cs" />
+    <Compile Include="VIewModels\TagViewModel.cs" />
+    <Compile Include="Views\WriteValueWindow.xaml.cs" />
+    <Page Include="Views\AddWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -76,15 +82,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DarkTheme.xaml">
+    <Page Include="Resources\DarkTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="LightTheme.xaml">
+    <Page Include="Resources\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="Views\FilterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HistoryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -92,19 +105,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs" />
-    <Compile Include="BaseViewModel.cs" />
-    <Compile Include="LoginWindow.xaml.cs" />
-    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Views\App.xaml.cs" />
+    <Compile Include="VIewModels\BaseViewModel.cs" />
+    <Compile Include="Views\LoginWindow.xaml.cs" />
+    <Compile Include="VIewModels\MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TagDetailsWindow.xaml">
+    <Page Include="Views\TagDetailsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WriteValueWindow.xaml">
+    <Page Include="Views\WriteValueWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

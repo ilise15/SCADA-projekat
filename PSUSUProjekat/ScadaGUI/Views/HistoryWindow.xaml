@@ -1,0 +1,29 @@
+<Window x:Class="ScadaGUI.Views.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Istorija taga" Height="560" Width="800"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" x:Name="TitleText" FontSize="16" FontWeight="Bold"
+                   Foreground="#1976D2" Margin="0,0,0,10"/>
+        <Border Grid.Row="1" Background="#E3F2FD" CornerRadius="4" Padding="12" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="MinText" Margin="0,0,20,0" FontSize="13"/>
+                <TextBlock x:Name="MaxText" Margin="0,0,20,0" FontSize="13"/>
+                <TextBlock x:Name="AvgText" FontSize="13"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+            <Canvas x:Name="ChartCanvas" Background="White" ClipToBounds="True"/>
+        </Border>
+        <Button Grid.Row="3" Content="Zatvori" Click="Close_Click" HorizontalAlignment="Right"
+                Padding="20,8" Background="#1976D2" Foreground="White"
+                BorderThickness="0" Cursor="Hand" FontSize="13"/>
+    </Grid>
+</Window>
