@@ -1,0 +1,61 @@
+<Window x:Class="ScadaGUI.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Podešavanja" Height="580" Width="420"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <ScrollViewer>
+        <StackPanel Margin="20">
+            <TextBlock Text="Izgled" FontSize="15" FontWeight="Bold" Foreground="#1976D2" Margin="0,0,0,8"/>
+            <CheckBox x:Name="DarkModeBox" Content="Tamna tema (Dark Mode)"
+                      IsChecked="{Binding IsDarkMode}" Margin="0,0,0,16"
+                      ToolTip="Prebaci između svetle i tamne teme"/>
+
+            <TextBlock Text="Zvuk alarma" FontSize="15" FontWeight="Bold" Foreground="#1976D2" Margin="0,0,0,8"/>
+            <CheckBox Content="Zvuk uključen" IsChecked="{Binding AlarmSoundEnabled}"
+                      Margin="0,0,0,8" ToolTip="Emituj zvuk kada se aktivira alarm"/>
+            <TextBlock Text="Jačina zvuka:" Margin="0,0,0,4"/>
+            <Slider Minimum="0" Maximum="1" Value="{Binding AlarmVolume}"
+                    TickFrequency="0.1" IsSnapToTickEnabled="True" Margin="0,0,0,8"/>
+            <TextBlock Text="Zvučni signal:" Margin="0,0,0,4"/>
+            <ComboBox ItemsSource="{Binding SoundOptions}" SelectedItem="{Binding SelectedSoundFile}"
+                      Height="32" Margin="0,0,0,16"/>
+
+            <TextBlock Text="Lokalizacija" FontSize="15" FontWeight="Bold" Foreground="#1976D2" Margin="0,0,0,8"/>
+            <TextBlock Text="Jezik:" Margin="0,0,0,4"/>
+            <ComboBox x:Name="LangBox" Height="32" Margin="0,0,0,8"
+                      SelectionChanged="LangBox_SelectionChanged"
+                      ToolTip="Promenite jezik aplikacije">
+                <ComboBoxItem Content="Srpski" Tag="sr"/>
+                <ComboBoxItem Content="English" Tag="en"/>
+            </ComboBox>
+            <TextBlock Text="Format datuma:" Margin="0,0,0,4"/>
+            <ComboBox x:Name="DateFmtBox" Height="32" Margin="0,0,0,8"
+                      SelectionChanged="DateFmt_SelectionChanged">
+                <ComboBoxItem Content="DD.MM.YYYY (srpski)"/>
+                <ComboBoxItem Content="MM/DD/YYYY (američki)"/>
+                <ComboBoxItem Content="YYYY-MM-DD (ISO)"/>
+            </ComboBox>
+            <TextBlock Text="Vremenska zona:" Margin="0,0,0,4"/>
+            <ComboBox x:Name="TzBox" Height="32" Margin="0,0,0,16"
+                      SelectionChanged="Tz_SelectionChanged"/>
+
+            <TextBlock Text="Trace podešavanja" FontSize="15" FontWeight="Bold"
+                       Foreground="#1976D2" Margin="0,0,0,8"/>
+            <TextBlock x:Name="TraceWordLabel" Margin="0,0,0,6" Foreground="#757575"/>
+            <CheckBox Content="Login/Logout" IsChecked="{Binding TraceLogin}" Margin="0,2"
+                      ToolTip="Beleži prijave i odjave"/>
+            <CheckBox Content="Potvrda alarma" IsChecked="{Binding TraceAlarmAck}" Margin="0,2"/>
+            <CheckBox Content="Dodavanje taga" IsChecked="{Binding TraceTagAdd}" Margin="0,2"/>
+            <CheckBox Content="Izmena taga" IsChecked="{Binding TraceTagUpdate}" Margin="0,2"/>
+            <CheckBox Content="Import/Export" IsChecked="{Binding TraceImportExport}" Margin="0,2"/>
+            <CheckBox Content="Greške" IsChecked="{Binding TraceError}" Margin="0,2"/>
+            <CheckBox Content="Aktivirani alarmi" IsChecked="{Binding TraceAlarmRaised}" Margin="0,2"/>
+            <CheckBox Content="Promena skena" IsChecked="{Binding TraceScanChange}" Margin="0,2"/>
+            <CheckBox Content="Upis vrednosti" IsChecked="{Binding TraceWriteToTag}" Margin="0,2"/>
+
+            <Button Content="Zatvori" Click="Close_Click" HorizontalAlignment="Right"
+                    Margin="0,16,0,0" Padding="20,8" Background="#1976D2" Foreground="White"
+                    BorderThickness="0" Cursor="Hand" FontSize="13"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
