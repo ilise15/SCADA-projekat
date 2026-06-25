@@ -81,10 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
+    </ApplicationDefinition>
     <Page Include="Resources\DarkTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,6 +156,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataConcentrator\DataConcentrator.csproj">
+      <Project>{5e252e3a-870f-45bb-8bca-65d1dfdce6e4}</Project>
+      <Name>DataConcentrator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PLCSimulator\PLCSimulator.csproj">
+      <Project>{83149342-01f2-4073-a389-324614c77fa3}</Project>
+      <Name>PLCSimulator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
